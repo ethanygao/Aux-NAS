@@ -1,0 +1,96 @@
+{
+    "General":{
+        "path_model":"ckpts/aux_nas/normal",
+        "device":"cuda",
+        "type":"full",
+        "model_timm":"vit_base_patch16_224",
+        "emb_dim":768,
+        "hooks":[2, 5, 8, 11],
+        "read":"ignore",
+        "resample_dim":192,
+        "fuse_conv_type": "3x3",
+        "optim":"adam",
+        "lr_backbone":1e-4,
+        "lr_decoder":1e-4,
+        "lr_fusion":1e-4,
+        "lr_resemble":1e-4,
+        "lr_nddr":1e-4,
+        "lr_arch":1e-2,
+        "loss_normal":"cosine",
+        "loss_segmentation":"ce",
+        "seg_ignore_index": "255",
+        "momentum":0.9,
+        "epochs":100,
+        "batch_size":20,
+        "path_predicted_images":"output",
+        "seed":0,
+        "patch_size":16,
+        "normal_loss_weight": 20.0,
+        "seg_loss_weight": 1.0,
+        "scheduler": "poly",
+        "save_folder": "none",
+        "tasks": ["normal", "segmentation"],
+        "seg_nclasses": 40
+    },
+    "Aux": {
+        "prim_task": "normal",
+        "Arch": {
+            "init_arch_weight": 0.5,
+            "a2p_init_arch_weight": 0.001
+        },
+        "regu_losses": {
+            "entropy_regu": false,
+            "entropy_regu_weight": 0.0,
+            "entropy_regu_period": [0.2, 0.5],
+            "l1_regu": true,
+            "l1_regu_weight": 1000.0,
+            "l1_regu_period": [0.5, 0.8],
+            "weighted_l1": false
+        },
+        "NDDR": {
+            "init": [0.0, 0.0],
+            "a2p_init": [0.0, 0.0],
+            "norm": "none",
+            "activ": "none"
+        },
+        "reverse": false,
+        "type": "fg_nas",
+        "load_prim_net": "ckpts/single_task/normal/vit_base_patch16_224_emb_768_resample_192_bs_32_epochs_100/best_within_1125_model_0095_loss_0.0468_mIoU_0.0000_within_1125_43.2009.pt",
+        "load_aux_net": "ckpts/single_task/seg/vit_base_patch16_224_emb_768_resample_192_bs_32_epochs_100/best_mIoU_model_0053_loss_1.3921_mIoU_0.3398_within_1125_0.0000.pt"
+    },
+    "Dataset":{
+        "paths":{
+            "path_dataset":"./datasets",
+            "list_datasets":["nyu_train_val"],
+            "path_images":"img",
+            "path_segmentations":"seg",
+            "path_normals":"normal_mask",
+            "path_train": "training",
+            "path_val": "testing"
+        },
+        "extensions":{
+            "ext_images":".png",
+            "ext_segmentations":".png",
+            "ext_normals":".png"
+        },
+        "splits":{
+            "split_train":0.6,
+            "split_val":0.2,
+            "split_test":0.2
+        },
+        "transforms":{
+            "resize":224,
+            "p_flip":0.5,
+            "p_crop":0.3,
+            "p_rot":0.2
+        }
+    },
+    "wandb":{
+        "enable":false,
+        "username":"younesbelkada",
+        "images_to_show":3,
+        "im_h":480,
+        "im_w":640
+    }
+
+}

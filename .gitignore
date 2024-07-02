@@ -1,0 +1,12 @@
+datasets
+ckpts
+.ipynb_checkpoints/
+*.pyc
+*.pyc
+*.right
+*/__pycache__/
+models/FocusOnDepth.p
+*.tar
+*.zip
+ckpts*
+*DS_Store*
