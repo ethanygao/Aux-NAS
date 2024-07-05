@@ -24,9 +24,9 @@ $ pip install -r requirements.txt
 ```
 
 ## Dataset & Checkpoints
-Follow the instruction [here](https://github.com/ethanygao/NDDR-CNN) to prepare the dataset. Alternatively, download the preprocessed dataset [here](https://drive.google.com/file/d/1AgD62eAtueblU6b4TckMGOemSfl-YV7o/view?usp=sharing) and unzip it in the `Aux-NAS` folder.
+Follow the instruction [here](https://github.com/ethanygao/NDDR-CNN) to prepare the dataset. Alternatively, download the preprocessed dataset [here](https://1drv.ms/u/c/7a98ceef6d290667/EQRZt_HaVlFLo3bgsYvnsKgBcxMgv0vuZY5eAJIN_gHSQQ?e=ICjEBf) and unzip it in the `Aux-NAS` folder.
 
-Train the single task weights following the instruction below. Alternatively, download the converted PyTorch models from [here](https://drive.google.com/file/d/1UHe6igDyFG3Eb4a-aT3p3iUP1R3rNBCs/view?usp=sharing) and unzip it in the `Aux-NAS` folder.
+Train the single task weights following the instruction below. Alternatively, download the converted PyTorch models from [here](https://1drv.ms/u/c/7a98ceef6d290667/EeoehlLd8l1KoEZGEVpiDb4Bixwo0dl8rKe6OFNL1yYSgw?e=8lfi5F) and unzip it in the `Aux-NAS` folder.
 
 When you are all set, you should have the following file structure:
 ```
