@@ -51,7 +51,7 @@ $ CUDA_VISIBLE_DEVICES=0 python train.py --config-file configs/config_full2.json
 
 ### Aux-NAS:
 ```sh
-$ CUDA_VISIBLE_DEVICES=0 python train.py --config-file configs/config_aux_nas2_prim_normal.json     # normal (primary) + seg (auxiliary)
+$ CUDA_VISIBLE_DEVICES=0 python train_nas.py --config-file configs/config_aux_nas2_prim_normal.json     # normal (primary) + seg (auxiliary)
 ```
 
 ## Acknowledgements
